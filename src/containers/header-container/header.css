@@ -3,9 +3,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow-x: hidden;
     width: 100%;
 }
+
 
 /* typography */
 .font-logo{
@@ -30,7 +30,7 @@ li .link{
 }
 
 .nav-menu{
-    position: absolute;
+    position: fixed;
     right: -50%;
     top: 3.6rem;
     height: calc(100vh - 3.6rem);
@@ -39,13 +39,38 @@ li .link{
     justify-content: center;
     align-items: flex-start;
     padding: 1em;
-    opacity: 0;
-    transition: all 1s linear;
-    background-color: red;
+    transition: right 1s linear;
 }
 
 .nav-menu-active{
     opacity: 1;
     right: 0;
+}
+
+.nav-menu ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
+
+
+@media (width > 425px) {
+    .menu-btn{
+        display: none;
+    }
+    .nav-menu{
+        position: initial;
+        top: 0;
+        right: 0;
+        opacity: 1;
+        height: auto;
+        width: auto;
+        padding: 0;
+        justify-content: flex-end;
+    }
+    .nav-menu ul{
+        flex-direction: row;
+        gap: 2rem;
+    }
     
 }

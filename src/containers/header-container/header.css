@@ -1,0 +1,51 @@
+.header{
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* typography */
+.font-logo{
+    color : var(--f-b1-clr);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li .link{
+    color: black;
+    text-decoration: none;
+}
+
+/* layout */
+.logo-section{
+    display: flex;
+}
+
+.nav-menu{
+    position: absolute;
+    right: -50%;
+    top: 3.6rem;
+    height: calc(100vh - 3.6rem);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1em;
+    opacity: 0;
+    transition: all 1s linear;
+    background-color: red;
+}
+
+.nav-menu-active{
+    opacity: 1;
+    right: 0;
+    
+}

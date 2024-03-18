@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root{
+  --p-clr : #000000;
+  --s-clr : #EDEDED;
+
+  --f-b1-clr : #000000;
+  --s-b2-clr : #6B6B6B;
+
+ --d-clr : #FFFFFF;
+
+  font-family: 'Roboto', sans-serif;
+
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  max-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+/*global classess*/
+.fit-cntnr {
+  height:  100%;
+  width: 100%;
+}

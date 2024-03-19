@@ -20,31 +20,69 @@ ul{
 }
 
 li .link{
-    color: black;
+    color: var(--d-clr);
     text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/*styling*/
+
+.nav-menu{
+    background : var(--p-clr);
+}
+
+.logo-section .logo{
+    width: 0.8rem;
+    height: 0.9rem;
+}
+
+.header{
+    border-bottom: 0.5px solid var(--s-clr);
+}
+
+.menu-btn-line{
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    border-radius: 12px;
+}
+
+.menu-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    gap: 2.8px;
 }
 
 /* layout */
 .logo-section{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-menu{
-    position: fixed;
-    right: -50%;
-    top: 3.6rem;
-    height: calc(100vh - 3.6rem);
-    width: 50%;
+
     display: flex;
     justify-content: center;
     align-items: flex-start;
+
+    position: fixed;
+    top: 3.6rem;
+    right: -50%;
+
+    height: calc(100vh - 3.6rem);
+    width: 50%;
+
     padding: 1em;
-    transition: right 1s linear;
+    transition: right 0.5s linear;
 }
 
 .nav-menu-active{
     opacity: 1;
-    right: 0;
+    right: 0%;
 }
 
 .nav-menu ul{
@@ -55,9 +93,20 @@ li .link{
 
 
 @media (width > 425px) {
+    /*styling*/
+    .nav-menu{
+        background-color: var(--d-clrs);
+    }
+
+    li .link{
+        color: var(--p-clr);
+    }
+
+    /*layout*/
     .menu-btn{
         display: none;
     }
+
     .nav-menu{
         position: initial;
         top: 0;
@@ -66,8 +115,8 @@ li .link{
         height: auto;
         width: auto;
         padding: 0;
-        justify-content: flex-end;
     }
+
     .nav-menu ul{
         flex-direction: row;
         gap: 2rem;

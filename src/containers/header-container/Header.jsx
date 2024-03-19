@@ -21,7 +21,11 @@ const Header = () => {
         <img className='logo' src={Logo} />
         <p className='font-logo'>Wallpaper</p>
       </div>
-      <div className='menu-btn' onClick={handleMenuClick}>menu</div>
+      <div className='menu-btn' onClick={handleMenuClick}>
+        <div className='top-line menu-btn-line'></div>
+        <div className='middle-line menu-btn-line'></div>
+        <div className='bottom-line menu-btn-line'></div>
+      </div>
       <nav className='nav-menu' ref={menu}>
         <ul>
           <li><Link className='link'>Home</Link></li>

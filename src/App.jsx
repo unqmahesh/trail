@@ -6,23 +6,30 @@ import {Routes, Route, Navigate} from 'react-router-dom'
 
 import RootPage from './pages/Root-page/RootPage.jsx'
 
+import HomePage from './pages/Home-page/HomePage.jsx'
+import ExplorePage from './pages/Explore-page/ExplorePage.jsx'
 import AuthenticatePage from './pages/Authenticate-page/AuthenticatePage.jsx'
-import SignUp from './components/auth-form/SignUp.jsx'
-import SignIn from './components/auth-form/SignIn.jsx'
+import { SignUpForm , SignInForm } from './containers/auth-forms/AuthForms.jsx'
 
-const App = () => {
-  return (
-    <Routes>
-      <Route path='/' element={<Navigate to='/root/authenticate' />} /> 
-        <Route path='/root/*' Component={RootPage} > 
-          <Route index path='home' element={<h1>hello</h1>} /> 
-          <Route path='authenticate/*' Component={AuthenticatePage} >
-              <Route index path='signup' Component={SignIn} />
-              <Route path='signin' Component={SignUp} />
-          </Route>
-        </Route>
-    </Routes>
-  )
-}
+const App = () => (
+  <Routes>
+    <Route path='/' element={<Navigate to='/root' />} />
+    <Route path='/root/*' Component={RootPage}>
+
+      <Route path='home/*' Component={HomePage} />
+
+      <Route path='explore/*' Component={ExplorePage} />
+
+      <Route index element={<Navigate to='authenticate' /> } />
+      <Route path='authenticate/*' Component={AuthenticatePage}>
+
+        <Route index element={<Navigate to='signup' />}/>
+        <Route path='signup/*' Component={SignUpForm} />
+        <Route path='signin/*' Component={SignInForm} />
+      </Route>
+
+    </Route>
+  </Routes>
+)
 
 export default App

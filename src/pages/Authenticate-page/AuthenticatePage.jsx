@@ -1,8 +1,14 @@
 import React from 'react'
 
+import {Outlet} from 'react-router-dom'
+
+import './authenticatepage.css'
+
 const AuthenticatePage = () => {
   return (
-    <div>Authenticate</div>
+    <section className='authenticate-page'>
+      <Outlet />
+    </section>
   )
 }
 

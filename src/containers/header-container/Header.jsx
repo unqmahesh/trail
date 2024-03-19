@@ -28,10 +28,10 @@ const Header = () => {
       </div>
       <nav className='nav-menu' ref={menu}>
         <ul>
-          <li><Link className='link'>Home</Link></li>
-          <li><Link  className='link'>Explore</Link></li>
-          <li><Link  className='link'>Signup</Link></li>
-          <li><Link  className='link'>Signin</Link></li>
+          <li><Link className='link' to='home'>Home</Link></li>
+          <li><Link  className='link' to='explore'>Explore</Link></li>
+          <li><Link  className='link' to='authenticate/signup'>Signup</Link></li>
+          <li><Link  className='link' to='authenticate/signin'>Signin</Link></li>
         </ul>
       </nav>
     </div>

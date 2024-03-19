@@ -8,11 +8,11 @@ import {Outlet} from 'react-router-dom'
 
 const RootPage = () => {
   return (
-    <div className='root'>
+    <div className='root-page'>
         <header className='header-main'>
             <Header />
         </header>
-        <main>
+        <main> 
             <Outlet />
         </main>
         <footer className='footer-main'>

@@ -1,4 +1,25 @@
 .root-page{
     width: 100%;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.root-page header{
+    width: 100%;
+}
+
+.root-page footer{
+    width: 100%;
+}
+
+.root-page main{
+    width: 100%;   
+}
+
+@media (width > 425px) {
+    .root-page main{
+        width: 90%;
+    }
 }

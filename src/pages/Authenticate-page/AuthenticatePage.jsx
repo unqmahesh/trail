@@ -6,9 +6,9 @@ import './authenticatepage.css'
 
 const AuthenticatePage = () => {
   return (
-    <section className='authenticate-page'>
+    <div className='authenticate-page'>
       <Outlet />
-    </section>
+    </div>
   )
 }
 

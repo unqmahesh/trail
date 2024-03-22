@@ -16,13 +16,12 @@ const App = () => (
     <Route path='/' element={<Navigate to='/root' />} />
     <Route path='/root/*' Component={RootPage}>
 
+      <Route index element={<Navigate to='home' />} />
       <Route path='home/*' Component={HomePage} />
 
       <Route path='explore/*' Component={ExplorePage} />
 
-      <Route index element={<Navigate to='authenticate' /> } />
       <Route path='authenticate/*' Component={AuthenticatePage}>
-
         <Route index element={<Navigate to='signup' />}/>
         <Route path='signup/*' Component={SignUpForm} />
         <Route path='signin/*' Component={SignInForm} />

@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { Link, Navigate } from 'react-router-dom'
 
 import './authforms.css'
+
+import { authenticatedContext } from '../../context-api/authenticated.jsx'
+
+import userSignUp from '../../backend-api/user-signup.js'
+import userSignIn from '../../backend-api/user-signin.js'
 
 const SignUpForm = () => {
 
@@ -9,10 +14,12 @@ const SignUpForm = () => {
   const [userEmail, setUserEmail] = useState("")
   const [userPassword, setUserPassword] = useState("")
 
+  const {authenticated, setAuthenticated} = useContext(authenticatedContext)
+
+
   function handleInputChange(event){
     const inputName = event.target.name
     const inputValue = event.target.value
-    console.log(inputName, inputValue)
       switch(inputName){
       case 'userName':
         setUserName(inputValue)
@@ -26,13 +33,19 @@ const SignUpForm = () => {
     }
   }
 
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault()
-    console.log(userName, userEmail, userPassword)
+    const responseData = await userSignUp(userName, userEmail, userPassword)
+    if(responseData){
+      if(responseData.success){
+        setAuthenticated(true)
+      }
+    }
   }
 
 
   return (
+    (!authenticated ?     
     <div className='signup-form form'>
         <form onSubmit={handleSubmit}>
           <input type= "text" placeholder='Name' name='userName' value={userName} onChange={handleInputChange}/>
@@ -42,8 +55,9 @@ const SignUpForm = () => {
         </form>
         <p>Already have an account ? <span><Link className='link' to='/root/authenticate/signin'>signin</Link></span></p>
     </div>
-    
+  : <Navigate to='/root/home' />)
   )
+
 }
 
 const SignInForm = () => {
@@ -51,10 +65,11 @@ const SignInForm = () => {
   const [userEmail, setUserEmail] = useState("")
   const [userPassword, setUserPassword] = useState("")
 
+  const {authenticated, setAuthenticated} = useContext(authenticatedContext)
+
   function handleInputChange(event){
     const inputName = event.target.name
     const inputValue = event.target.value
-    console.log(inputName, inputValue)
       switch(inputName){
       case 'userEmail':
         setUserEmail(inputValue)
@@ -65,12 +80,17 @@ const SignInForm = () => {
     }
   }
 
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault()
-    console.log(userEmail, userPassword)
+    const responseData = await userSignIn(userEmail, userPassword)
+    if(responseData)
+      if(responseData.success){
+        setAuthenticated(true)
+      }
   }
 
     return(
+      (!authenticated ? 
       <div className='signin-form form'>
       <form onSubmit={handleSubmit}>
       <input type= "text" placeholder='Email' name='userEmail' value={userEmail} onChange={handleInputChange}/>
@@ -79,6 +99,7 @@ const SignInForm = () => {
       </form>
       <p>Don't have an account ? <span><Link className="link" to='/root/authenticate/signup'>signup</Link></span></p>
   </div>
+  : <Navigate to='/root/home' /> )
     )
 }
 

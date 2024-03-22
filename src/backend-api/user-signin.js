@@ -13,7 +13,7 @@ const userSignIn = async (userEmail, userPassword) => {
         const FULL_URL = `${BASE_URL}/user/signin`
 
         const response = await axios.post(FULL_URL, payload, {withCredentials : true} )
-
+        console.log(response.data)
         return response.data
 
     }catch(error){

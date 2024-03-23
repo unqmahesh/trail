@@ -15,7 +15,7 @@ const userSignUp = async (userName, userEmail, userPassword) => {
         const FULL_URL = `${BASE_URL}/user/signup`
   
         const response = await axios.post(FULL_URL, payload, {withCredentials : true} )
-
+        console.log(document.cookie)
         return response.data
 
     }catch(error){

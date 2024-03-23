@@ -14,6 +14,7 @@ const userSignIn = async (userEmail, userPassword) => {
 
         const response = await axios.post(FULL_URL, payload, {withCredentials : true} )
         console.log(response.data)
+        console.log(document.cookie)
         return response.data
 
     }catch(error){
